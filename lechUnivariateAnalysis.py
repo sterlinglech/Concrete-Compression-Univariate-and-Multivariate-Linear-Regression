@@ -1,9 +1,15 @@
 import matplotlib
 import numpy as np
 from numpy import *
+from sklearn.metrics import r2_score
 from sklearn.model_selection import train_test_split
+from sklearn import metrics
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
+
+
+def calculate_r2(y_values, y_predicted):
+    return metrics.r2_score(y_values, y_predicted)
 
 
 def compute_error_for_line_given_points(b, m, points):
@@ -50,6 +56,8 @@ def abline(slope, intercept, x_vals):
     y_vals = intercept + slope * x_vals
     plt.plot(x_vals, y_vals, 'red')
 
+    return y_vals
+
 
 def run():
     # Collect our data, randomize it, and separate it into training and testing ndarrays:
@@ -84,6 +92,7 @@ def run():
     # plot the scatter plot of the training data and the linear fit, then show the plot
     plt.scatter(x_ndarray_training, y_ndarray_training, c="green")
     abline(b, m, x_ndarray_training)
+    y_predicted_values = abline(b, m, x_ndarray_training)
     plt.show()
 
     # clear the plot of the training data
@@ -93,6 +102,8 @@ def run():
     plt.scatter(x_ndarray_testing, y_ndarray_testing, c="blue")
     abline(b, m, x_ndarray_training)
     plt.show()
+
+    print('The R2 value for the Training Y-Values: ', calculate_r2(y_ndarray_training, y_predicted_values))
 
 
 
