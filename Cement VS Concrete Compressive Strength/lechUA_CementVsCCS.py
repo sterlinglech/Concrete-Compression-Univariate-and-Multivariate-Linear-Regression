@@ -7,7 +7,6 @@ from sklearn import metrics
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 
-
 def calculate_r2(y_values, y_predicted):
     return metrics.r2_score(y_values, y_predicted)
 
@@ -58,7 +57,6 @@ def abline(slope, intercept, x_vals):
 
     return y_vals
 
-
 def run():
     # Collect our data, randomize it, and separate it into training and testing ndarrays:
     points = genfromtxt('cementVsCCS_FullDataSet.csv', delimiter=',')
@@ -89,6 +87,12 @@ def run():
     print('After {0} iterations b = {1}, m = {2}, error = {3}'.format(num_iterations, b, m,
                                                                       compute_error_for_line_given_points(b, m,
                                                                                                           points)))
+
+    # Label the title, X axis, and Y axis
+    plt.title('Cement VS Concrete Compressive Strength')
+    plt.xlabel('Cement')
+    plt.ylabel('Concrete Compressive Strength')
+
     # plot the scatter plot of the training data and the linear fit, then show the plot
     plt.scatter(x_ndarray_training, y_ndarray_training, c="green")
     abline(b, m, x_ndarray_training)
@@ -98,14 +102,17 @@ def run():
     # clear the plot of the training data
     plt.clf()
 
+    # Label the title, X axis, and Y axis
+    plt.title('Cement VS Concrete Compressive Strength')
+    plt.xlabel('Cement')
+    plt.ylabel('Concrete Compressive Strength')
+
     # plot the scatter plot of the testing data and the linear fit, then show the plot
     plt.scatter(x_ndarray_testing, y_ndarray_testing, c="blue")
     abline(b, m, x_ndarray_training)
     plt.show()
 
     print('The R2 value for the Training Y-Values: ', calculate_r2(y_ndarray_training, y_predicted_values))
-
-
 
 
 
