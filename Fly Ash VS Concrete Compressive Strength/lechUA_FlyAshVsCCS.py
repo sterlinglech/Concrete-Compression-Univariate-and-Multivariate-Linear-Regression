@@ -59,7 +59,7 @@ def abline(slope, intercept, x_vals):
 
 def run():
     # Collect our data, randomize it, and separate it into training and testing ndarrays:
-    points = genfromtxt('cementVsCCS_FullDataSet.csv', delimiter=',')
+    points = genfromtxt('flyAshVsCCS.csv', delimiter=',')
     np.random.shuffle(points)
     training_points, testing_points = points[:900,:], points[900:,:]
 
@@ -74,10 +74,10 @@ def run():
     y_ndarray_testing = np.asarray(y_testing_values)
 
     # Defining hyper parameters:
-    learning_rate = 0.00001
+    learning_rate = 0.000002
     initial_b = 0
     initial_m = 0
-    num_iterations = 4000
+    num_iterations = 5000
 
     # Train our model:
     print('Starting gradient descent at b = {0}, m = {1}, error = {2}'.format(initial_b, initial_m,
@@ -89,8 +89,8 @@ def run():
                                                                                                           testing_points)))
 
     # Label the title, X axis, and Y axis
-    plt.title('Cement VS Concrete Compressive Strength')
-    plt.xlabel('Cement')
+    plt.title('Fly Ash VS Concrete Compressive Strength')
+    plt.xlabel('Fly Ash')
     plt.ylabel('Concrete Compressive Strength')
 
     # plot the scatter plot of the training data and the linear fit, then show the plot
@@ -103,8 +103,8 @@ def run():
     plt.clf()
 
     # Label the title, X axis, and Y axis
-    plt.title('Cement VS Concrete Compressive Strength')
-    plt.xlabel('Cement')
+    plt.title('Fly Ash VS Concrete Compressive Strength')
+    plt.xlabel('Fly Ash')
     plt.ylabel('Concrete Compressive Strength')
 
     # plot the scatter plot of the testing data and the linear fit, then show the plot
