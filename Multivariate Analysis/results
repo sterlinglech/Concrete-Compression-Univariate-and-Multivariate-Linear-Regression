@@ -1,0 +1,29 @@
+C:\Users\Sterling\PycharmProjects\venv\Scripts\python.exe "C:\Users\Sterling\PycharmProjects\cSE_514_AssignmentOne\Multivariate Analysis\lechMultivariateAnalysis.py"
+With initial theta values of [0. 0. 0. 0. 0. 0. 0. 0. 0.], cost error is 809.4984664444441, mse is 809.4984664444444
+With final theta values of [36.36269079  7.50272638  4.22152766  1.79253626 -5.90825282  2.96023798
+ -1.30218636 -2.68155142  7.45378828], cost error is 58.56982527396875, mse is 58.56982527396876
+The R2 score for the cement component testing data is: -12.015344513105182
+The R2 score for the Blast Furnace Slag component testing data is: -7.024885485635085
+The R2 score for the Fly Ash component testing data is: -7.586437483193402
+The R2 score for the Water component testing data is: -7.170835295263322
+The R2 score for the Superplasticizer (component 5)(kg in a m^3 mixture) testing data is: -7.210044661071596
+The R2 score for the Coarse Aggregate  (component 6)(kg in a m^3 mixture) testing data is: -7.277159841776934
+The R2 score for the Fine Aggregate (component 7)(kg in a m^3 mixture) testing data is: -7.090320909710533
+Traceback (most recent call last):
+  File "C:\Users\Sterling\PycharmProjects\cSE_514_AssignmentOne\Multivariate Analysis\lechMultivariateAnalysis.py", line 103, in <module>
+    run()
+  File "C:\Users\Sterling\PycharmProjects\cSE_514_AssignmentOne\Multivariate Analysis\lechMultivariateAnalysis.py", line 97, in run
+    print('The R2 score for the Age (day) testing data is: {0}'.format(calculate_r2(y_testing, X_testing, theta_vector[7], 'Age (day)')))
+  File "C:\Users\Sterling\PycharmProjects\cSE_514_AssignmentOne\Multivariate Analysis\lechMultivariateAnalysis.py", line 18, in calculate_r2
+    return metrics.r2_score(y_testing_param, predicted_y_array)
+  File "C:\Users\Sterling\PycharmProjects\venv\lib\site-packages\sklearn\metrics\_regression.py", line 911, in r2_score
+    y_type, y_true, y_pred, multioutput = _check_reg_targets(
+  File "C:\Users\Sterling\PycharmProjects\venv\lib\site-packages\sklearn\metrics\_regression.py", line 102, in _check_reg_targets
+    y_pred = check_array(y_pred, ensure_2d=False, dtype=dtype)
+  File "C:\Users\Sterling\PycharmProjects\venv\lib\site-packages\sklearn\utils\validation.py", line 899, in check_array
+    _assert_all_finite(
+  File "C:\Users\Sterling\PycharmProjects\venv\lib\site-packages\sklearn\utils\validation.py", line 146, in _assert_all_finite
+    raise ValueError(msg_err)
+ValueError: Input contains NaN.
+
+Process finished with exit code 1

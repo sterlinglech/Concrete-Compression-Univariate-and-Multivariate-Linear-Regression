@@ -51,7 +51,6 @@ def gradient_descent_runner(points, starting_b, starting_m, learning_rate, num_i
 def abline(slope, intercept, x_vals):
     """Plot a line from slope and intercept"""
     axes = plt.gca()
-    # x_vals = np.array(axes.get_xlim())
     y_vals = intercept + slope * x_vals
     plt.plot(x_vals, y_vals, 'red')
 
@@ -86,7 +85,7 @@ def run():
     [b, m] = gradient_descent_runner(training_points, initial_b, initial_m, learning_rate, num_iterations)
     print('After {0} iterations b = {1}, m = {2}, error = {3}'.format(num_iterations, b, m,
                                                                       compute_error_for_line_given_points(b, m,
-                                                                                                          testing_points)))
+                                                                                                          training_points)))
 
     # Label the title, X axis, and Y axis
     plt.title('Cement VS Concrete Compressive Strength')

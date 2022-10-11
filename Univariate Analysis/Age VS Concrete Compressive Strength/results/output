@@ -1,0 +1,5 @@
+C:\Users\Sterling\PycharmProjects\venv\Scripts\python.exe "C:\Users\Sterling\PycharmProjects\cSE_514_AssignmentOne\Univariate Analysis\Age VS Concrete Compressive Strength\lechUA_Age_VsCCS.py"
+Starting gradient descent at b = 0.1, m = 0.5, error = 1082.272114999998
+After 10000 iterations b = 0.918086873773647, m = 0.32241600223497685, error = nan
+
+The R2 value for the Training Y-Values:  -9.765960692481478

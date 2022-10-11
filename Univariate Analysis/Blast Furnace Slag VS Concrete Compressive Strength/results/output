@@ -1,0 +1,4 @@
+Starting gradient descent at b = 0, m = 0, error = 1596.2571137777775
+After 5000 iterations b = 0.3013070377753424, m = 0.22187429429417566, error = 790.412961182465
+The R2 value for the Training Y-Values:  -2.6160338841122535
+The R2 value for the Testing Y-Values:  -2.9769038249106936
