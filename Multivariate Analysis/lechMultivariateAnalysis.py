@@ -16,7 +16,7 @@ def calculate_r2(y_testing_param, X_testing_param, theta_vector_param, column_st
     predicted_y_array = TestingArray * theta_vector_param
 
     return metrics.r2_score(y_testing_param, predicted_y_array)
-def mean_standard_error(X_param, y_param, theta_param):
+def cost_function(X_param, y_param, theta_param):
     m = y_param.size
     error = np.dot(X_param, theta_param.T) - y_param
     cost = 1 / (2 * m) * np.dot(error.T, error)
@@ -27,7 +27,7 @@ def gradient_descent(X_param, y_param, theta_param, alpha, iters):
     cost_array = np.zeros(iters)
     m = y_param.size
     for i in range(iters):
-        cost, error, mse = mean_standard_error(X_param, y_param, theta_param)
+        cost, error, mse = cost_function(X_param, y_param, theta_param)
         theta_param = theta_param - (alpha * (1 / m) * np.dot(X_param.T, error))
         cost_array[i] = cost
     return theta_param, cost_array
@@ -73,17 +73,13 @@ def run():
 
     # Initialize Theta Values to 0
     theta_vector = np.zeros(X_training.shape[1])
-    initial_cost, _, initial_mse = mean_standard_error(X_training, y_training, theta_vector)
+    initial_cost, _, initial_mse = cost_function(X_training, y_training, theta_vector)
 
     # initial values of MSE and Thetas/Coefficients
     print('With initial theta values of {0}, cost error is {1}, mse is {2}'.format(theta_vector, initial_cost, initial_mse))
 
     # Run Gradient Descent
     theta_vector, cost_num = gradient_descent(X_training, y_training, theta_vector, alpha, iterations)
-
-    # final values of MSE and Thetas/Coefficients
-    final_cost, _, final_mse = mean_standard_error(X_training, y_training, theta_vector)
-    print('With final theta values of {0}, cost error is {1}, mse is {2}'.format(theta_vector, final_cost, final_mse))
 
 
     # calculate the R2 scores for all the testing features
